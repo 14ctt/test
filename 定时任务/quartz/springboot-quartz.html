@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>spring boot + quartz | Hello VuePress</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="vue press 练习">
+    
+    <link rel="preload" href="/test/assets/css/0.styles.6e6d5c77.css" as="style"><link rel="preload" href="/test/assets/js/app.c01455fe.js" as="script"><link rel="preload" href="/test/assets/js/2.733019b2.js" as="script"><link rel="preload" href="/test/assets/js/17.4f2732be.js" as="script"><link rel="prefetch" href="/test/assets/js/10.81649e95.js"><link rel="prefetch" href="/test/assets/js/11.d0eb8448.js"><link rel="prefetch" href="/test/assets/js/12.b25d131e.js"><link rel="prefetch" href="/test/assets/js/13.3ef6a154.js"><link rel="prefetch" href="/test/assets/js/14.a215250a.js"><link rel="prefetch" href="/test/assets/js/15.545f2e86.js"><link rel="prefetch" href="/test/assets/js/16.da4806a1.js"><link rel="prefetch" href="/test/assets/js/3.8dfc125c.js"><link rel="prefetch" href="/test/assets/js/4.d12742be.js"><link rel="prefetch" href="/test/assets/js/5.216cae74.js"><link rel="prefetch" href="/test/assets/js/6.2d0a63f8.js"><link rel="prefetch" href="/test/assets/js/7.f34ebad0.js"><link rel="prefetch" href="/test/assets/js/8.0f14f79b.js"><link rel="prefetch" href="/test/assets/js/9.fac0ac9b.js">
+    <link rel="stylesheet" href="/test/assets/css/0.styles.6e6d5c77.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/test/" class="home-link router-link-active"><!----> <span class="site-name">Hello VuePress</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/test/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/test/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><a href="/test/springboot/Filter统一异常处理.html" class="nav-link">
+  springboot
+</a></div><div class="nav-item"><a href="/test/springCloud/" class="nav-link">
+  spring cloud
+</a></div><div class="nav-item"><a href="/test/vuePressConfig/" class="nav-link">
+  VuePress配置
+</a></div><div class="nav-item"><a href="/test/swagger/常用注解.html" class="nav-link">
+  swagger
+</a></div><div class="nav-item"><a href="/test/定时任务/quartz/springboot-quartz.html" class="nav-link">
+  任务框架
+</a></div><div class="nav-item"><a href="http://caibaojian.com/vuepress/guide/getting-started.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue 学习笔记" class="dropdown-title"><span class="title">Vue 学习笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="Vue 学习笔记" class="mobile-dropdown-title"><span class="title">Vue 学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/test/guide/vue/test01.html" class="nav-link">
+  笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Typescript 学习笔记" class="dropdown-title"><span class="title">Typescript 学习笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="Typescript 学习笔记" class="mobile-dropdown-title"><span class="title">Typescript 学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/test/guide/ts/" class="nav-link">
+  笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其它参考" class="dropdown-title"><span class="title">其它参考</span> <span class="arrow down"></span></button> <button type="button" aria-label="其它参考" class="mobile-dropdown-title"><span class="title">其它参考</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  API
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><h4>
+          学习视频
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  慕客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B 站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          开源项目
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  项目 01
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  项目 02
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  项目 03
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  项目 04
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/test/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/test/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><a href="/test/springboot/Filter统一异常处理.html" class="nav-link">
+  springboot
+</a></div><div class="nav-item"><a href="/test/springCloud/" class="nav-link">
+  spring cloud
+</a></div><div class="nav-item"><a href="/test/vuePressConfig/" class="nav-link">
+  VuePress配置
+</a></div><div class="nav-item"><a href="/test/swagger/常用注解.html" class="nav-link">
+  swagger
+</a></div><div class="nav-item"><a href="/test/定时任务/quartz/springboot-quartz.html" class="nav-link">
+  任务框架
+</a></div><div class="nav-item"><a href="http://caibaojian.com/vuepress/guide/getting-started.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue 学习笔记" class="dropdown-title"><span class="title">Vue 学习笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="Vue 学习笔记" class="mobile-dropdown-title"><span class="title">Vue 学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/test/guide/vue/test01.html" class="nav-link">
+  笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Typescript 学习笔记" class="dropdown-title"><span class="title">Typescript 学习笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="Typescript 学习笔记" class="mobile-dropdown-title"><span class="title">Typescript 学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/test/guide/ts/" class="nav-link">
+  笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其它参考" class="dropdown-title"><span class="title">其它参考</span> <span class="arrow down"></span></button> <button type="button" aria-label="其它参考" class="mobile-dropdown-title"><span class="title">其它参考</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  API
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><h4>
+          学习视频
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  慕客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B 站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          开源项目
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  项目 01
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  项目 02
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  项目 03
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cn.bing.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  项目 04
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/test/定时任务/quartz/springboot-quartz.html" class="active sidebar-link">spring boot + quartz</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/test/定时任务/quartz/springboot-quartz.html#引入依赖" class="sidebar-link">引入依赖</a></li><li class="sidebar-sub-header"><a href="/test/定时任务/quartz/springboot-quartz.html#创建配置" class="sidebar-link">创建配置</a></li><li class="sidebar-sub-header"><a href="/test/定时任务/quartz/springboot-quartz.html#创建job类" class="sidebar-link">创建job类</a></li><li class="sidebar-sub-header"><a href="/test/定时任务/quartz/springboot-quartz.html#动态创建job" class="sidebar-link">动态创建job</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="spring-boot-quartz"><a href="#spring-boot-quartz" class="header-anchor">#</a> spring boot + quartz</h1> <h1 id="步骤"><a href="#步骤" class="header-anchor">#</a> 步骤</h1> <ul><li>引入依赖</li> <li>创建配置</li> <li>创建job类</li> <li>动态创建job</li></ul> <h2 id="引入依赖"><a href="#引入依赖" class="header-anchor">#</a> 引入依赖</h2> <div class="language-html extra-class"><pre class="language-html"><code>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-data-jdbc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-quartz<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="创建配置"><a href="#创建配置" class="header-anchor">#</a> 创建配置</h2> <div class="language-yaml extra-class"><pre class="language-yaml"><code>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> quartzService
+
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//192.168.43.251<span class="token punctuation">:</span>3306/test<span class="token punctuation">?</span>allowMultiQueries=true<span class="token important">&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
+
+  <span class="token key atrule">quartz</span><span class="token punctuation">:</span>
+    <span class="token key atrule">wait-for-jobs-to-complete-on-shutdown</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token comment">#数据库方式</span>
+    <span class="token key atrule">job-store-type</span><span class="token punctuation">:</span> jdbc
+    <span class="token comment">#初始化表结构</span>
+    <span class="token key atrule">jdbc</span><span class="token punctuation">:</span>
+      <span class="token key atrule">initialize-schema</span><span class="token punctuation">:</span> never
+    <span class="token comment">#相关属性配置</span>
+    <span class="token key atrule">properties</span><span class="token punctuation">:</span>
+      <span class="token key atrule">org</span><span class="token punctuation">:</span>
+        <span class="token key atrule">quartz</span><span class="token punctuation">:</span>
+          <span class="token key atrule">scheduler</span><span class="token punctuation">:</span>
+            <span class="token comment">#调度器实例名称</span>
+            <span class="token key atrule">instanceName</span><span class="token punctuation">:</span> clusteredScheduler
+            <span class="token comment">#调度器实例编号自动生成</span>
+            <span class="token key atrule">instanceId</span><span class="token punctuation">:</span> AUTO
+          <span class="token key atrule">jobStore</span><span class="token punctuation">:</span>
+            <span class="token comment">#开启分布式部署</span>
+            <span class="token key atrule">isClustered</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+            <span class="token comment">#持久化方式配置</span>
+            <span class="token key atrule">class</span><span class="token punctuation">:</span> org.springframework.scheduling.quartz.LocalDataSourceJobStore
+            <span class="token comment">#持久化方式配置数据驱动，MySQL数据库</span>
+            <span class="token key atrule">driverDelegateClass</span><span class="token punctuation">:</span> org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            <span class="token comment">#quartz相关数据表前缀名</span>
+<span class="token comment">#            tablePrefix: BC_QRTZ_</span>
+            <span class="token comment">#分布式节点有效性检查时间间隔，单位：毫秒</span>
+            <span class="token key atrule">clusterCheckinInterval</span><span class="token punctuation">:</span> <span class="token number">10000</span>
+            <span class="token comment">#配置是否使用</span>
+            <span class="token key atrule">useProperties</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+          <span class="token key atrule">threadPool</span><span class="token punctuation">:</span>
+            <span class="token comment">#线程池实现类</span>
+            <span class="token key atrule">class</span><span class="token punctuation">:</span> org.quartz.simpl.SimpleThreadPool
+            <span class="token comment">#执行最大并发线程数量</span>
+            <span class="token key atrule">threadCount</span><span class="token punctuation">:</span> <span class="token number">10</span>
+            <span class="token comment">#线程优先级</span>
+            <span class="token key atrule">threadPriority</span><span class="token punctuation">:</span> <span class="token number">5</span>
+            <span class="token comment">#配置是否启动自动加载数据库内的定时任务，默认true</span>
+            <span class="token key atrule">threadsInheritContextClassLoaderOfInitializingThread</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre></div><h2 id="创建job类"><a href="#创建job类" class="header-anchor">#</a> 创建job类</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>demofilter<span class="token punctuation">.</span>task</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>demofilter<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span><span class="token class-name">Service</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">SneakyThrows</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Logger</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">LoggerFactory</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token class-name">QuartzJobBean</span></span><span class="token punctuation">;</span>
+<span class="token comment">// 可继承 Job 或者 QuartzJobBean</span>
+<span class="token comment">//@PersistJobDataAfterExecution：告诉Quartz在成功执行了Job实现类的execute方法后（没有发生任何异常），更新JobDetail中JobDataMap的数据，使得该JobDetail实例在下一次执行的时候，JobDataMap中是更新后的数据，而不是更新前的旧数据。</span>
+<span class="token comment">//@DisallowConcurrentExecution：告诉Quartz不要并发地执行同一个JobDetail实例。</span>
+<span class="token annotation punctuation">@PersistJobDataAfterExecution</span>
+<span class="token annotation punctuation">@DisallowConcurrentExecution</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestJob</span> <span class="token keyword">implements</span> <span class="token class-name">Job</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Logger</span> log <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">TestJob</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// spring 依赖注入bean</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Service</span> service<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">TestJob</span><span class="token punctuation">(</span><span class="token class-name">Service</span> service<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>service <span class="token operator">=</span> service<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment">//    @SneakyThrows</span>
+<span class="token comment">//    @Override</span>
+<span class="token comment">//    protected void executeInternal(JobExecutionContext context) throws JobExecutionException {</span>
+<span class="token comment">//        log.info(&quot;jobKey=[{}]，[{}];triggerKey=[{}],SchedulerInstanceId=[{}]&quot;,</span>
+<span class="token comment">//                context.getJobDetail().getJobDataMap().get(&quot;count&quot;),</span>
+<span class="token comment">//                context.getJobDetail().getKey().getName(),</span>
+<span class="token comment">//                context.getTrigger().getKey().getName(),</span>
+<span class="token comment">//                context.getScheduler().getSchedulerInstanceId()</span>
+<span class="token comment">//        );</span>
+<span class="token comment">//        service.show();</span>
+<span class="token comment">//    }</span>
+    <span class="token annotation punctuation">@SneakyThrows</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">execute</span><span class="token punctuation">(</span><span class="token class-name">JobExecutionContext</span> jobExecutionContext<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">JobExecutionException</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;jobKey=[{}]，[{}];triggerKey=[{}],SchedulerInstanceId=[{}]&quot;</span><span class="token punctuation">,</span>
+                jobExecutionContext<span class="token punctuation">.</span><span class="token function">getJobDetail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getJobDataMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;count&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                jobExecutionContext<span class="token punctuation">.</span><span class="token function">getJobDetail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                jobExecutionContext<span class="token punctuation">.</span><span class="token function">getTrigger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                jobExecutionContext<span class="token punctuation">.</span><span class="token function">getScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSchedulerInstanceId</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        service<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="动态创建job"><a href="#动态创建job" class="header-anchor">#</a> 动态创建job</h2> <div class="language-java extra-class"><pre class="language-java"><code>
+    <span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>demofilter<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>demofilter<span class="token punctuation">.</span>task<span class="token punctuation">.</span></span><span class="token class-name">TestJob</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>swagger<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">Api</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>swagger<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">ApiOperation</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>quartz<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Logger</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">LoggerFactory</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span></span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">LocalDateTime</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">ZoneId</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>format<span class="token punctuation">.</span></span><span class="token class-name">DateTimeFormatter</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Date</span></span><span class="token punctuation">;</span>
+    
+    <span class="token annotation punctuation">@Api</span><span class="token punctuation">(</span><span class="token string">&quot;test&quot;</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@RestController</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;/api/&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Scheduler</span> scheduler<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Logger</span> log <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">Controller</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token keyword">public</span> <span class="token class-name">Controller</span><span class="token punctuation">(</span><span class="token class-name">Scheduler</span> scheduler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>scheduler <span class="token operator">=</span> scheduler<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    
+        <span class="token comment">/**
+        * 创建定时任务
+        * @return
+        * @throws SchedulerException
+        */</span>
+        <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;createTask&quot;</span><span class="token punctuation">,</span>tags <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;createTask tags&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>notes <span class="token operator">=</span> <span class="token string">&quot;createTask notes&quot;</span><span class="token punctuation">)</span>
+        <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;/createTask&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">createTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">SchedulerException</span> <span class="token punctuation">{</span>
+            <span class="token class-name">String</span> jobKey <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">JobDetail</span> jobDetail <span class="token operator">=</span> <span class="token class-name">JobBuilder</span><span class="token punctuation">.</span><span class="token function">newJob</span><span class="token punctuation">(</span><span class="token class-name">TestJob</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">withIdentity</span><span class="token punctuation">(</span>jobKey<span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">usingJobData</span><span class="token punctuation">(</span><span class="token string">&quot;count&quot;</span><span class="token punctuation">,</span> jobKey<span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> triggerKey <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Trigger</span> trigger <span class="token operator">=</span> <span class="token class-name">TriggerBuilder</span><span class="token punctuation">.</span><span class="token function">newTrigger</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">withSchedule</span><span class="token punctuation">(</span><span class="token class-name">SimpleScheduleBuilder</span><span class="token punctuation">.</span><span class="token function">simpleSchedule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">withIntervalInSeconds</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">withRepeatCount</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">withIdentity</span><span class="token punctuation">(</span>triggerKey<span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;jobKey=[{}],triggerKey=[{}]&quot;</span><span class="token punctuation">,</span>jobKey<span class="token punctuation">,</span>triggerKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Date</span> date <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">scheduleJob</span><span class="token punctuation">(</span>jobDetail<span class="token punctuation">,</span>trigger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">LocalDateTime</span> localDateTime <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">atZone</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">systemDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocalDateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> localDateTime<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    
+        <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;test&quot;</span><span class="token punctuation">,</span>tags <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;test tags&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>notes <span class="token operator">=</span> <span class="token string">&quot;test notes&quot;</span><span class="token punctuation">)</span>
+        <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;/pass&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">&quot;pass&quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    
+        <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span>tags <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;errorTags&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>notes <span class="token operator">=</span> <span class="token string">&quot;errorNotes&quot;</span><span class="token punctuation">)</span>
+        <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;/error&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">10</span><span class="token operator">/</span><span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token string">&quot;error&quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/test/assets/js/app.c01455fe.js" defer></script><script src="/test/assets/js/2.733019b2.js" defer></script><script src="/test/assets/js/17.4f2732be.js" defer></script>
+  </body>
+</html>
